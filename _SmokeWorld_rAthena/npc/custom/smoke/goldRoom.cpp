@@ -21,7 +21,7 @@ prontera,147,202,3	script	Gold Room	2248,{
 	switch(select("- Bora!:- Deixa pra depois..."))
 	{
 		case 1:
-			if(vip_status(VIP_STATUS_ACTIVE)){
+			if(vip_status(VIP_STATUS_ACTIVE) || getgroupid() >= 99){
 				clear;
 				mes "^C9CB1B[Gold Room]^000000";
 				mes "Aproveite!";

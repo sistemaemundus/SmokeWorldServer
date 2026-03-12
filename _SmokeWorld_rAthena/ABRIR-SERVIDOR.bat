@@ -2,7 +2,7 @@
 title SmokeWorld Control Panel
 color 0A
 
-set "SERVER_DIR=E:\_SMOKEWORLD\_SmokeWorld_rAthena"
+set "SERVER_DIR=E:\_SMOKEWORLD\_SmokeWorld_SERVER\_SmokeWorld_rAthena"
 
 :menu
 cls
