@@ -49,7 +49,7 @@ OnInit:
 // Maximum Player can join per X Minutes.
 set .MaxPlayers,10;
 // Adding X Minutes of Delay before can go in again.
-set .DelayMin,5;
+set .DelayMin,0;
 // Maximum Hunt Limit per round inside the Zone.
 set .MaxItemLimit,200;
 // Map that will be used in thos Zone.

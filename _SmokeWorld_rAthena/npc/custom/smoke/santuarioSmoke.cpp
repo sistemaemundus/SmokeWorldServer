@@ -52,7 +52,7 @@ OnInit:
 set .MaxPlayers,10;
 
 // Adding X Minutes of Delay before can go in again.
-set .DelayMin,2;
+set .DelayMin,0;
 
 // Maximum Hunt Limit per round inside the Zone.
 //set .MaxItemLimit,200;
