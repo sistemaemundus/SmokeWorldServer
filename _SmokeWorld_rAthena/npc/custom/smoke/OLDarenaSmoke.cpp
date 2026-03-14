@@ -1,7 +1,7 @@
 // Criado por Alek Emundus
-// Arena Smoke - Instânciada - Atualmente com 6 Andares
+// Torre das Ilusões - Instanciada em 5 Andares
 //============================================================
-prontera,168,179,4	script	Anfitrião Smoke	405,{
+prontera,167,176,4	script	Anfitrião Smoke	405,{
     // Verifica se o jogador já está em uma instância
     if (instance_id(IM_PARTY)) {
         .@instance_id = instance_id(IM_PARTY);
@@ -209,11 +209,6 @@ prontera,168,179,4	script	Anfitrião Smoke	405,{
             mes "A fumaça encobre um poder que não deveria existir.";
             mes "Possuindo atualmente ao todo 6 andares.";
             mes "O verdadeiro desafio o aguarda no final de cada um deles!";
-			next;
-			clear;
-			mes "[Anfitrião Smoke]";
-			mes "Mesmo que você morra lá dentro, poderá voltar.";
-			mes "Portanto não desista!";
             close;
             
         case 3:
@@ -268,46 +263,12 @@ OnInit:
 	end;
 	
 OnInstanceInit:
-	// PEGA O NOME DA INSTÂNCIA ATUAL
-    .@instance_name$ = instance_live_info(ILI_NAME, instance_id());
-	
-	 // VERIFICA SE É UMA INSTÂNCIA DA ARENA USANDO compare
-    if (compare(.@instance_name$, "Smoke I - Vida") ||
-        compare(.@instance_name$, "Smoke II - Fogo") ||
-        compare(.@instance_name$, "Smoke III - Gelo") ||
-        compare(.@instance_name$, "Smoke IV - Morte") ||
-        compare(.@instance_name$, "Smoke V - Ancestral") ||
-        compare(.@instance_name$, "Smoke VI - Divino")) {
-        
-        // É da Arena - configura a waiting room
-        waitingroom "Clique aqui para iniciar!",0;
-        enablenpc instance_npcname(strnpcinfo(0));
-        //debugmes "Arena ATIVADA: " + .@instance_name$;
-        
-    } else {
-        // É do Santuário - mantém desativado
-        disablenpc instance_npcname(strnpcinfo(0));
-        //debugmes "Arena DESATIVADA (instância do Santuário): " + .@instance_name$;
-    }
-    end;
+	// APENAS configura a waiting room, sem definir mobs
+	waitingroom "Clique aqui para iniciar!",0;
+	end;
 }
 
 pvp_arena,0,0,0	script	#ins_pvp_arena_mobs	-1,{
-	end;
-OnInit:
-	// mapflags
-	.@map$ = strnpcinfo(4);
-
-	setmapflag .@map$, mf_noreturn;
-	setmapflag .@map$, mf_noteleport;
-	setmapflag .@map$, mf_nowarp;
-	setmapflag .@map$, mf_nowarpto;
-	setmapflag .@map$, mf_nomemo;
-	setmapflag .@map$, mf_nobranch;
-	setmapflag .@map$, mf_nopenalty;
-	setmapflag .@map$, mf_partylock;
-	setmapflag .@map$, mf_monster_noteleport;
-	setmapflag .@map$, mf_loadevent;
 	end;
 	
 OnEnable:
@@ -327,13 +288,7 @@ OnTimer5000:
 
 	.@map$ = strnpcinfo(4);
 	.@instance_name$ = instance_live_info(ILI_NAME, instance_id());
-	
-	// VERIFICA SE É UMA INSTÂNCIA DA ARENA
-	if (!compare(.@instance_name$, "Smoke ")) {
-		// Não é da Arena (provavelmente é do Santuário) - não faz nada
-		end;
-	}
-	
+
 	// ==========================
 	// DEFINIÇÃO DOS MOBS - AGORA AQUI NO OnTimer5000
 	// ==========================

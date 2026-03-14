@@ -1,12 +1,12 @@
 //= Traduzido por Alek Emundus
-prontera,140,226,6	script	VIP System	109,{
+prontera,146,196,6	script	Anfitrião VIP	109,{
 if (getgroupid()<4) {
 goto Prem;
 }
 
 set .@Timer, vip_status(VIP_STATUS_EXPIRE);
 
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Bem vindo "+strcharinfo(0)+",";
 mes "Por favor escolha seu menu.";
 mes "^FF0000Seu VIP vai expirar em:^000000";
@@ -130,12 +130,12 @@ set .@day,1000;
 set .@week,5000;
 set .@month,20000;
 if (getgroupid()>60) {
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Desculpe, GM nao sao permitidos de usar nossos servicos.";
 close;
 }
 
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Aqui estao as taxas de acesso VIP.";
 mes "24 horas "+.@day+" cash point";
 mes "1 semana "+.@week+" cash point";
@@ -145,48 +145,48 @@ next;
 switch(select("Eu quero de 24 horas:Eu quero de 1 semana:Eu quero de 1 mes:Nao, obrigado.")) {
 case 1:
 if (#CASHPOINTS < .@day) {
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Seus cash points nao sao o suficiente,";
 mes ""+.@day+" cash points para usar este servico.";
 close;
 }
 set #CASHPOINTS, #CASHPOINTS - .@day;
 atcommand "@vip +24h "+strcharinfo(0)+"";
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Aproveite seu beneficio.";
 dispbottom "seus cash points atuais "+#CASHPOINTS+".";
 close;
 
 case 2:
 if (#CASHPOINTS < .@week) {
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Seus cash points nao sao o suficiente,";
 mes ""+.@week+" cash points para usar este servico.";
 close;
 }
 set #CASHPOINTS, #CASHPOINTS - .@week;
 atcommand "@vip +7d "+strcharinfo(0)+"";
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Aproveite seu beneficio.";
 dispbottom "seus cash points atuais "+#CASHPOINTS+".";
 close;
 
 case 3:
 if (#CASHPOINTS < .@month) {
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Seus cash points nao sao o suficiente,";
 mes ""+.@month+" cash points para usar este servico.";
 close;
 }
 set #CASHPOINTS, #CASHPOINTS - .@month;
 atcommand "@vip +1m "+strcharinfo(0)+"";
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Aproveite seu beneficio.";
 dispbottom "seus cash points atuais "+#CASHPOINTS+".";
 close;
 
 case 4:
-mes "[ VIP NPC ]";
+mes "[Anfitrião VIP]";
 mes "Ate mais.";
 close;
 }
@@ -196,38 +196,38 @@ close;
 // --------------------------------------------------
 //	Duplicates:
 // --------------------------------------------------
-alberta,33,240,4	duplicate(VIP System)	VIP System#alb	109
-aldebaran,146,116,4	duplicate(VIP System)	VIP System#alde	109
-amatsu,205,87,4	duplicate(VIP System)	VIP System#ama	109
-ayothaya,212,172,6	duplicate(VIP System)	VIP System#ayo	109
-comodo,191,161,4	duplicate(VIP System)	VIP System#com	109
-einbech,55,36,6	duplicate(VIP System)	VIP System#einbe	109
-einbroch,72,206,4	duplicate(VIP System)	VIP System#einbr	109
-geffen,127,66,4	duplicate(VIP System)	VIP System#gef	109
-gonryun,162,126,4	duplicate(VIP System)	VIP System#gon	109
-hugel,102,148,4	duplicate(VIP System)	VIP System#hug	109
-izlude,128,152,4	duplicate(VIP System)	VIP System#izl	109	//Pre-RE: (132,120)
-jawaii,248,134,4	duplicate(VIP System)	VIP System#jaw	109
-lighthalzen,154,104,4	duplicate(VIP System)	VIP System#lhz	109
-louyang,205,105,6	duplicate(VIP System)	VIP System#lou	109
-manuk,272,150,6	duplicate(VIP System)	VIP System#man	109
-mid_camp,216,286,4	duplicate(VIP System)	VIP System#mid	109
-morocc,146,89,4	duplicate(VIP System)	VIP System#mor	109
-moscovia,226,195,4	duplicate(VIP System)	VIP System#mos	109
-niflheim,199,180,4	duplicate(VIP System)	VIP System#nif	109
-payon,178,109,4	duplicate(VIP System)	VIP System#pay	109
-rachel,138,122,4	duplicate(VIP System)	VIP System#rac	109
-splendide,198,153,4	duplicate(VIP System)	VIP System#spl	109
-umbala,97,148,3	duplicate(VIP System)	VIP System#umb	109
-veins,211,120,4	duplicate(VIP System)	VIP System#ve	109
-xmas,142,139,6	duplicate(VIP System)	VIP System#xmas	109
-yuno,164,50,4	duplicate(VIP System)	VIP System#yuno	109
+alberta,33,240,4	duplicate(Anfitrião VIP)	Anfitrião VIP#alb	109
+aldebaran,146,116,4	duplicate(Anfitrião VIP)	Anfitrião VIP#alde	109
+amatsu,205,87,4	duplicate(Anfitrião VIP)	Anfitrião VIP#ama	109
+ayothaya,212,172,6	duplicate(Anfitrião VIP)	Anfitrião VIP#ayo	109
+comodo,191,161,4	duplicate(Anfitrião VIP)	Anfitrião VIP#com	109
+einbech,55,36,6	duplicate(Anfitrião VIP)	Anfitrião VIP#einbe	109
+einbroch,72,206,4	duplicate(Anfitrião VIP)	Anfitrião VIP#einbr	109
+geffen,127,66,4	duplicate(Anfitrião VIP)	Anfitrião VIP#gef	109
+gonryun,162,126,4	duplicate(Anfitrião VIP)	Anfitrião VIP#gon	109
+hugel,102,148,4	duplicate(Anfitrião VIP)	Anfitrião VIP#hug	109
+izlude,128,152,4	duplicate(Anfitrião VIP)	Anfitrião VIP#izl	109	//Pre-RE: (132,120)
+jawaii,248,134,4	duplicate(Anfitrião VIP)	Anfitrião VIP#jaw	109
+lighthalzen,154,104,4	duplicate(Anfitrião VIP)	Anfitrião VIP#lhz	109
+louyang,205,105,6	duplicate(Anfitrião VIP)	Anfitrião VIP#lou	109
+manuk,272,150,6	duplicate(Anfitrião VIP)	Anfitrião VIP#man	109
+mid_camp,216,286,4	duplicate(Anfitrião VIP)	Anfitrião VIP#mid	109
+morocc,146,89,4	duplicate(Anfitrião VIP)	Anfitrião VIP#mor	109
+moscovia,226,195,4	duplicate(Anfitrião VIP)	Anfitrião VIP#mos	109
+niflheim,199,180,4	duplicate(Anfitrião VIP)	Anfitrião VIP#nif	109
+payon,178,109,4	duplicate(Anfitrião VIP)	Anfitrião VIP#pay	109
+rachel,138,122,4	duplicate(Anfitrião VIP)	Anfitrião VIP#rac	109
+splendide,198,153,4	duplicate(Anfitrião VIP)	Anfitrião VIP#spl	109
+umbala,97,148,3	duplicate(Anfitrião VIP)	Anfitrião VIP#umb	109
+veins,211,120,4	duplicate(Anfitrião VIP)	Anfitrião VIP#ve	109
+xmas,142,139,6	duplicate(Anfitrião VIP)	Anfitrião VIP#xmas	109
+yuno,164,50,4	duplicate(Anfitrião VIP)	Anfitrião VIP#yuno	109
 
 // --------------------------------------------------
 //	Duplicates (Renewal):
 // --------------------------------------------------
-brasilis,199,225,4	duplicate(VIP System)	VIP System#bra	109
-dewata,202,190,6	duplicate(VIP System)	VIP System#dew	109
-dicastes01,196,197,6	duplicate(VIP System)	VIP System#dic	109
-malangdo,137,116,6	duplicate(VIP System)	VIP System#mal	109
-malaya,228,195,4	duplicate(VIP System)	VIP System#ma	109
+brasilis,199,225,4	duplicate(Anfitrião VIP)	Anfitrião VIP#bra	109
+dewata,202,190,6	duplicate(Anfitrião VIP)	Anfitrião VIP#dew	109
+dicastes01,196,197,6	duplicate(Anfitrião VIP)	Anfitrião VIP#dic	109
+malangdo,137,116,6	duplicate(Anfitrião VIP)	Anfitrião VIP#mal	109
+malaya,228,195,4	duplicate(Anfitrião VIP)	Anfitrião VIP#ma	109

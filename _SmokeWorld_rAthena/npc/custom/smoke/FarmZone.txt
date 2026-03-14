@@ -38,7 +38,7 @@ Case 2:
 	}else{
 		warp .Map$,0,0;
 		set .Hunter[getarraysize( .Hunter )],strcharinfo(0);
-		set #HuntRoomDelay,gettimetick(2) + ( .DelayMin * 5 );
+		set #HuntRoomDelay,gettimetick(2) + ( .DelayMin * 60 );
 		set #FarmHunt,0;
 		end;
 		}
@@ -78,7 +78,7 @@ while( 1 ){
 	monster .Map$,0,0,"[ Farm Zone ] Habitante",-1,.MobResident,strnpcinfo(0)+"::OnNormalKill";
 	monster .Map$,0,0,"[ Farm Zone ] Guardião",-3,.MobGuardian,strnpcinfo(0)+"::OnBossKill";
 	deletearray .Hunter,getarraysize( .Hunter );
-	announce "[ Farm Zone ] : Farm Zone limpa, outros 10 jogadores podem se juntar.",bc_blue;
+	//announce "[ Farm Zone ] : Farm Zone limpa, outros 10 jogadores podem se juntar.",bc_blue;
 	sleep ( .RoomCleanMin * 60000 );
 	mapannounce .Map$,"[ Farm Zone ] : Mapa limpo... Todos players foram expulsos.",0;
 	killmonster .Map$,"All";
